@@ -23,7 +23,7 @@ public class Main {
      */
     public static void main(String[] args) throws IOException, HappyException {
         if (args == null || args.length == 0) {
-            throw new HappyException("参数错误!");
+            throw new HappyException("参数错误!-h查看帮助信息");
         }
         //解析命令行参数
         CommandLineParser parser = new BasicParser();
@@ -72,10 +72,10 @@ public class Main {
      */
     private static void printHelpInfo() {
         LogUtil.print("参数：\n" +
-                "[必传]-s：加密算法选择，目前提供两个:1和2\n" +
-                "[非必传]-t：需要加密的目标目录或class或jar，目前只实现了标准web目录\n" +
-                "[非必传]-j：需要加密的jar包，目前只实现了标准web目录:/WEB-INF/lib\n" +
-                "[非必传]-p：加密使用的密码，具体需要参照选择的算法\n" +
+                "[必传]-s：加密算法选择，目前提供：1、2、3\n" +
+                "[非必传]-t：需要加密的目标目录或class或jar，对于目录，目前只支持标准web结构\n" +
+                "[非必传]-j：-t指定的是加密目录时，该目录下可能包含多个jar包，此参数指定这些jar包中哪些需要加密。典型的是WEB-INF/lib下的jar包\n" +
+                "[非必传]-p：加密使用的密钥，具体需要参照选择的算法\n" +
                 "[非必传]-h：帮助信息\n" +
                 "[非必传]-e：排除的类名，多个逗号分割\n" +
                 "[非必传]-o：指定输出目录，默认为当前目录\n" +
